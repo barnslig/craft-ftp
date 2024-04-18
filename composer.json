@@ -17,15 +17,22 @@
       "email": "deng5765@gmail.com"
     }
   ],
+  "scripts": {
+    "phpstan": "phpstan --memory-limit=1G",
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix"
+  },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
     "php": "^8.0.2",
-    "craftcms/cms": "^4.0.0-beta.1",
-    "craftcms/flysystem": "^1.0.0-beta.2",
+    "craftcms/cms": "^4.0.0-beta.1 || ^5.0.0-beta.1",
+    "craftcms/flysystem": "^1.0.0 || ^2.0.0",
     "league/flysystem-ftp": "^3.0.0"
   },
   "require-dev": {
+    "craftcms/phpstan": "dev-main",
+    "craftcms/ecs": "dev-main"
   },
   "autoload": {
     "psr-4": {

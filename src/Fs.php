@@ -31,7 +31,7 @@ class Fs extends FlysystemFs
     {
         $behaviors = parent::behaviors();
         $behaviors['parser'] = [
-            'class'      => EnvAttributeParserBehavior::class,
+            'class' => EnvAttributeParserBehavior::class,
             'attributes' => ['host', 'port', 'username', 'password', 'root'],
         ];
 
@@ -41,7 +41,7 @@ class Fs extends FlysystemFs
     public function getSettingsHtml(): ?string
     {
         return Craft::$app->getView()->renderTemplate('craft-ftp/fsSettings', [
-            'fs'      => $this,
+            'fs' => $this,
             'periods' => array_merge(['' => ''], Assets::periodList()),
         ]);
     }
@@ -57,11 +57,11 @@ class Fs extends FlysystemFs
     {
         return new FtpAdapter(
             FtpConnectionOptions::fromArray([
-                'host'     => App::parseEnv($this->host),
-                'port'     => (int)App::parseEnv((string)$this->port),
+                'host' => App::parseEnv($this->host),
+                'port' => (int)App::parseEnv((string)$this->port),
                 'username' => App::parseEnv($this->username),
                 'password' => App::parseEnv($this->password),
-                'root'     => App::parseEnv($this->root),
+                'root' => App::parseEnv($this->root),
             ])
         );
     }
